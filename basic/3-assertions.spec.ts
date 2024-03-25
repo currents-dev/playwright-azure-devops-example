@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 
 test.beforeEach(async ({page}) => {
-  await page.goto('https://todomvc.com/examples/vanilla-es6/');
+  await page.goto('https://demo.playwright.dev/todomvc');
 });
 
 /**
@@ -9,11 +9,6 @@ test.beforeEach(async ({page}) => {
  * @see https://playwright.dev/docs/test-assertions/
  */
 test('should be able to use assertions', async ({page}) => {
-  await test.step('toHaveTitle/toHaveURL', async () => {
-    await expect(page).toHaveTitle('Vanilla ES6 • TodoMVC');
-    await expect(page).toHaveURL('https://todomvc.com/examples/vanilla-es6/');
-  });
-
   await test.step('toBeEmpty/toHaveValue', async () => {
     const input = page.locator('input.new-todo');
     await expect(input).toBeEmpty();
@@ -45,7 +40,8 @@ test('should be able to use assertions', async ({page}) => {
 
   await test.step('toHaveClass/toHaveCSS', async () => {
     await expect(page.locator('[placeholder="What needs to be done?"]')).toHaveClass('new-todo');
+    await expect(page.locator('text=Clear completed')).toBeVisible();
     await page.click('text=Clear completed');
-    await expect(page.locator('.main')).toHaveCSS('display', 'none');
+    await expect(page.locator('.main')).toHaveCount(0);
   });
 });

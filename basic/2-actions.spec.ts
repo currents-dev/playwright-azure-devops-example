@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("https://todomvc.com/examples/vanilla-es6/");
+  await page.goto("https://demo.playwright.dev/todomvc");
 });
 
 /**
@@ -53,5 +53,5 @@ test("element selectors @tagA", async ({ page }) => {
   await page.click("text=Completed >> visible=true");
 
   // XPath selector
-  await page.click("xpath=//html/body/section/section/label");
+  await page.click("xpath=//html/body/section/div/section/label");
 });
