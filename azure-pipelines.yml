@@ -52,5 +52,5 @@ jobs:
     displayName: 'Run Basic Tests'
     env:
       CI: 'true'
-      CURRENTS_PROJECT_ID: 'oMkqej'
+      CURRENTS_PROJECT_ID: '3W3DU4'
       CURRENTS_RECORD_KEY: $(CURRENTS_RECORD_KEY)
